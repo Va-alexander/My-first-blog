@@ -1,9 +1,19 @@
 Blog::Application.routes.draw do
+
+  devise_for :users
+  resources :users, :only => :show
+
   resources :posts do
     resources :comments
   end
 
+
+
   get "home/index"
+
+  # You can have the root of your site routed with "root"
+  # just remember to delete public/index.html.
+  root :to => 'home#index' 
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -52,9 +62,6 @@ Blog::Application.routes.draw do
   #     resources :products
   #   end
 
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
-  root :to => 'home#index' 
 
   # See how all your routes lay out with "rake routes"
 

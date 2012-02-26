@@ -1,3 +1,7 @@
 <h1>Alexander's Personal Blog.</h1>
 <h2>Welcome!</h2>
 <%= link_to "Go to Blog", posts_path %>
+
+<% @users.each do |user| %>
+  <p>User: <%= link_to user.name, user %> </p>
+<% end %>
